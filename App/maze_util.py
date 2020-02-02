@@ -101,21 +101,22 @@ def initGrid(xMax, yMax, zMax):
     # 3 - can go up from current cell
     # 4 - can go down from current cell
     # 5 - can go either up or down. 
+    rand = 20
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             for k in range(len(grid[0][0])):
                 if grid[i][j][k] > 0:
-                    if i > 0 and i + 1 < len(grid) and grid[i-1][j][k] > 0 and grid[i+1][j][k] > 0 and randint(0,50) == 0:
+                    if i > 0 and i + 1 < len(grid) and grid[i-1][j][k] > 0 and grid[i+1][j][k] > 0 and randint(0,rand) == 0:
                         grid[i][j][k] = 5
                         if grid[i-1][j][k] == 1:
                             grid[i-1][j][k] = 3
                         if i < len(grid) and grid[i+1][j][k] == 1:
                             grid[i+1][j][k] = 4
-                    elif i > 0 and grid[i-1][j][k] > 0 and randint(0,50) ==  0:
+                    elif i > 0 and grid[i-1][j][k] > 0 and randint(0,rand) == 0:
                         grid[i][j][k] = 4
                         if i > 0 and grid[i-1][j][k] == 1:
                             grid[i-1][j][k] = 3
-                    elif i + 1 < len(grid) and grid[i+1][j][k] > 0 and randint(0,50) == 0:
+                    elif i + 1 < len(grid) and grid[i+1][j][k] > 0 and randint(0,rand) == 0:
                         grid[i][j][k] = 3
                         if i < len(grid):
                             if grid[i+1][j][k] == 1:

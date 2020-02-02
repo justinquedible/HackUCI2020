@@ -90,7 +90,6 @@ class Player(turtle.Turtle):
         if maze.grid[self.level][x][y] == 3 or maze.grid[self.level][x][y] == 5:
             self.level = self.level + 1
             setup_maze(maze.getLevel(self.level))
-
     
     def go_descend(self):
         x, y = player.pos()
@@ -163,8 +162,15 @@ def setup_maze(level):
                 
             if element == 9:
                 endIt.goto(screen_x, screen_y)
-        
 
+    turtle.clear()
+    turtle.color('red')
+    style = ('Courier', 30, 'italic')
+    turtle.penup()
+    turtle.goto(-320,320)
+    turtle.write(str(player.level), font=style, align='center')
+    turtle.hideturtle()
+        
 player = Player()
 
 # Create walls coordinate list
