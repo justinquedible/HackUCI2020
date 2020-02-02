@@ -1,6 +1,8 @@
 import turtle
 import maze_util
 import math
+import pygame
+import cv2
 
 wn = turtle.Screen()
 wn.bgcolor("peru")
@@ -170,7 +172,32 @@ def setup_maze(level):
     turtle.goto(-320,320)
     turtle.write(str(player.level), font=style, align='center')
     turtle.hideturtle()
-        
+
+# Plays music file
+def play_music(musicFile):
+    pygame.init()
+    pygame.mixer.music.load(musicFile)
+    pygame.mixer.music.play()
+
+# Plays endgame patrick clip
+def play_endgame():
+    cap = cv2.VideoCapture("assets/patrick_clip.mp4")
+    if (cap.isOpened()== False):
+        print("Error opening video file")
+    while(cap.isOpened()):
+        ret, frame = cap.read()
+        if ret == True:
+            cv2.imshow('Frame', frame)
+            if cv2.waitKey(25) & 0xFF == ord('q'):
+                break
+        else:
+            break
+    cap.release()
+    cv2.destroyAllWindows()
+
+# Starts playing background music
+play_music("assets/music_bg.mp3")
+
 player = Player()
 
 # Create walls coordinate list
@@ -202,6 +229,8 @@ wn.tracer(0)
 while True:
     # Check for player collision with the end location
     if player.is_collision(endIt):
+        play_music("assets/screaming.mp3")
+        play_endgame()
         endIt.destroy()
         print("Patrick has caught SpongeBob")
         turtle.bye()
