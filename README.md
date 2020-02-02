@@ -8,7 +8,7 @@ The player plays as Patrick and can use eels to go down one level, escalators to
 
 
 This game is built on Python 3.7 and 3.8.
-Required modules include numpy, pygame, and opency-python.
+Required modules include numpy, pygame, and opencv-python.
 
 Use the up/down/right/left arrow keys to move horizontally.
 The q key can be used to go upstairs and a to go down.
