@@ -101,7 +101,7 @@ def initGrid(xMax, yMax, zMax):
     # 3 - can go up from current cell
     # 4 - can go down from current cell
     # 5 - can go either up or down. 
-    rand = 20
+    rand = 40
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             for k in range(len(grid[0][0])):
@@ -135,6 +135,10 @@ def initGrid(xMax, yMax, zMax):
                 if i != 0 and j != 0 and k != 0 and i != (len(newGrid) - 1) and j != (len(newGrid[0]) - 1) and k != (len(newGrid[0][0]) - 1):
                     newGrid[i][j][k] = grid[i-1][j-1][k-1]
     
+    newGrid[1][1][2] = 3
+    newGrid[2][1][2] = 5
+    newGrid[3][1][2] = 4
+
     return newGrid
 
 

@@ -86,8 +86,6 @@ class Player(turtle.Turtle):
         x, y = player.pos()
         x = int((x + 288) / 24)
         y = int(( 288 - y) / 24)
-        print(x, y, (maze.grid[self.level][x][y] == 3 or maze.grid[self.level][x][y] == 5))
-        print(maze.grid[self.level])
 
         if maze.grid[self.level][x][y] == 3 or maze.grid[self.level][x][y] == 5:
             self.level = self.level + 1
@@ -97,8 +95,6 @@ class Player(turtle.Turtle):
         x, y = player.pos()
         x = int((x + 288) / 24)
         y = int(( 288 - y) / 24)
-        print(x, y, (maze.grid[self.level][x][y] == 4 or maze.grid[self.level][x][y] == 5))
-        print(maze.grid[self.level])
 
         if maze.grid[self.level][x][y] == 4 or maze.grid[self.level][x][y] == 5:
             self.level = self.level - 1
@@ -164,13 +160,13 @@ def setup_maze(level):
                 
             if element == 9:
                 endIt.goto(screen_x, screen_y)
-
+    #Print floor #
     turtle.clear()
     turtle.color('red')
     style = ('Courier', 30, 'italic')
     turtle.penup()
-    turtle.goto(-320,320)
-    turtle.write(str(player.level), font=style, align='center')
+    turtle.goto(-270,320)
+    turtle.write(("Floor: " + str(player.level)), font=style, align='center')
     turtle.hideturtle()
 
 # Plays music file
